@@ -7,6 +7,7 @@ print(π)
 
 class Spin̈alTap: pass
 
+
 print(Spin̈alTap())
 
 # this would error
