@@ -1,7 +1,7 @@
 from timeit import Timer
 
 
-def call_commands_ten_times():
+def call_command_ten_times():
     throwaway_list = list()
     command = '([x * x for x in range(1000) if not x % 2])'
     for i in range(100):
@@ -13,10 +13,16 @@ def time_and_report_incremental_timestamps_for(command):
     pass
 
 
-def time_command_with_lambda(command):  # fyi lambda adds overhead
-    my_timer = Timer(lambda: eval(command))
-    my_timer_operation_time = my_timer.timeit(number=100)
-    print('operation_time : ' + str(my_timer_operation_time))
+def time_command_with_lambda(command_string):  # fyi lambda adds overhead
+    my_timer = Timer(lambda: eval(command_string))
+    my_timer_operation_time = my_timer.timeit(number=250)
+    print('operation_time w/ lambda : ' + str(my_timer_operation_time))
+
+
+def time_command_without_lambda(command_string):
+    my_timer = Timer(stmt=command_string, setup='from __main__ import call_command_ten_times')
+    my_timer_operation_time = my_timer.timeit(number=250)
+    print('operation_time w/o lambda : ' + str(my_timer_operation_time))
 
 
 def time_lambda_overhead():
@@ -31,7 +37,8 @@ def time_lambda_overhead():
 
 
 def main():
-    time_command_with_lambda('call_commands_ten_times()')
+    time_command_with_lambda('call_command_ten_times()')
+    time_command_without_lambda('call_command_ten_times()')
     # time_lambda_overhead()
     pass
 
