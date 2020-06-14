@@ -8,10 +8,6 @@ def generate_all_permutations_of_list(some_list_of_characters):
     """
     :param some_list_of_characters:
         the list to be operated on by the permutation function
-    :param return_list:
-        determines if the list of permutations is returned
-    :param return_length:
-        determines if the length of the list of permutations is returned
     :return:
         returnList, returnLength
         00 : return None
