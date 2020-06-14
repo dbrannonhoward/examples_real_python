@@ -4,9 +4,7 @@ from time import sleep
 from timeit import timeit
 
 
-def generate_all_permutations_of_list(some_list_of_characters,
-                                      return_list=False,
-                                      return_length=False):
+def generate_all_permutations_of_list(some_list_of_characters):
     """
     :param some_list_of_characters:
         the list to be operated on by the permutation function
@@ -29,13 +27,6 @@ def generate_all_permutations_of_list(some_list_of_characters,
     for permutation in all_permutations_of_list:
         list_of_permutations.append(permutation)
     number_of_permutations = len(list_of_permutations)
-    if return_list is True:
-        if return_length is True:
-            return 'List length : ' + str(number_of_permutations) + ', List : ' + str(list_of_permutations)
-        return 'List : ' + str(list_of_permutations)
-    if return_length is True:
-        return 'List length : ' + str(number_of_permutations)
-    return None
 
 
 def get_english_alphabet_upper_and_lower():
